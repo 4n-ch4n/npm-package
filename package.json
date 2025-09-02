@@ -1,0 +1,24 @@
+{
+  "name": "@4n-ch4n/npm-package",
+  "description": "Just a test package for iglua",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "Test"
+  ],
+  "author": "4n-ch4n",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  },
+  "repository": "https://github.com/4n-ch4n/npm-package",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
