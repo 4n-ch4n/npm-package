@@ -28,12 +28,23 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Git Semantic Version
+        uses: PaulHatch/semantic-version@v5.4.0
+        with:
+          major_pattern: "major:"
+          minor_pattern: "feat:"
+          patch_pattern: "fix:"
+          version_format: "${major}.${minor}.${patch}"
+        id: version
+        
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm run build
+      - run: npm pkg set version="${{ steps.version.outputs.version }}"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
