@@ -29,7 +29,6 @@ jobs:
           major_pattern: "major:"
           minor_pattern: "feat:"
           version_format: "${major}.${minor}.${patch}"
-      - run: "echo ${{version.outputs.version}}"
     outputs:
       version: ${{ steps.version.outputs.version }}
     
