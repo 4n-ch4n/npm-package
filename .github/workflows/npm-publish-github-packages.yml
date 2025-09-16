@@ -48,7 +48,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git push origin ${{ inputs.tag_name }}
+          git push origin ${{ needs.versioning.outputs.version }}
     
   publish-gpr:
     needs: [build, versioning, create-tag]
