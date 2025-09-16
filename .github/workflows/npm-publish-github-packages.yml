@@ -43,7 +43,7 @@ jobs:
           git config user.email "${{ github.actor }}@users.noreply.github.com"
       - name: Create tag
         run: |
-          git tag ${{ needs.versioning.outputs.versione }}
+          git tag ${{ needs.versioning.outputs.version }}
       - name: Push tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,7 +51,7 @@ jobs:
           git push origin ${{ inputs.tag_name }}
     
   publish-gpr:
-    needs: [build, versioning]
+    needs: [build, versioning, create-tag]
     runs-on: ubuntu-latest
     permissions:
       contents: read
