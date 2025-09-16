@@ -1,6 +1,6 @@
 # @4n-ch4n/npm-package
 
-Just a test package with workflow.
+Just a test package with workflow to CI/CD.
 
 ## Installation
 
