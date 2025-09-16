@@ -73,7 +73,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm run build
-      - run: npm pkg set version="${{ needs.versioning.outputs.version }}"
+      - run: npm pkg set version="${{ needs.versioning.outputs.version##v }}"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
